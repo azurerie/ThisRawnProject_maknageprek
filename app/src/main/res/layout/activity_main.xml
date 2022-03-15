@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Masukkan Jumlah Uang"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/uangjajansebulan_exittext"
+                        android:layout_marginTop="20dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:textSize="12sp"
+                        android:layout_marginRight="20dp"
+                        android:hint="masukkan jumlah uang jajanmu selama sebulan"
+                        android:imeOptions="actionNext"
+                        android:inputType="numberDecimal" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/kebutuhanssehari_edittext"
+                        android:layout_marginTop="20dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:textSize="12sp"
+                        android:layout_marginRight="20dp"
+                        android:hint="masukkan jumlah kebutuhanmu sehari"
+                        android:imeOptions="actionNext"
+                        android:inputType="numberDecimal" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/go_Button"
+                android:text="Tekan Sini"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+
+
+            <RelativeLayout
+                android:id="@+id/result_relativelayout"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <!--uang jajan sebulan -->
+
+                <TextView
+                    android:id="@+id/uangjajan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:text="uang jajan sebulan "
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/uangjajansebulan_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="15dp"
+                    android:text="Rp 0"
+                    android:textSize="18sp" />
+
+                <!-- kebutuhan sebulan -->
+                <TextView
+                    android:id="@+id/kebutuhanselamasebulan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/uangjajan"
+                    android:layout_marginTop="15dp"
+                    android:text="kebutuhan sebulan "
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/kebutuhansebulan_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/uangjajansebulan_textview"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="15dp"
+                    android:text="Rp 0"
+                    android:textSize="18sp" />
+
+                <!-- persentase hemat -->
+
+                <TextView
+                    android:id="@+id/persentasehemat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/kebutuhanselamasebulan"
+                    android:layout_marginTop="15dp"
+                    android:text="pesentase hemat "
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/persentasehemat_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/kebutuhansebulan_textview"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="15dp"
+                    android:text="Rp 0"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/persentaseboros"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/persentasehemat"
+                    android:layout_marginTop="15dp"
+                    android:text="persentase boros "
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/persentaseboros_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/persentasehemat_textview"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="15dp"
+                    android:text="Rp 0"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:textAlignment="center"
+                    android:id="@+id/quotes_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/persentaseboros"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="15dp"
+                    android:text="......."
+                    android:textSize="15sp" />
+
+                <Button
+                    android:id="@+id/reset_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/quotes_textview"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginRight="30dp"
+                    android:text="Reset" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:textSize="10sp"
+                android:textAlignment="center"
+                android:text=" @copyright_rawun"
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

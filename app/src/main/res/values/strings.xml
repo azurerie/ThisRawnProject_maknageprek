@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">makna_geprek</string>
+    <string name="penjelasan">Aplikasi ini adalah aplikasi saran pengeluaran dan penyimpanan.
+Dibuat mulai bulan awal maret 2022 . oleh grup RAWN dari 10 PPLG 1 .
+Dirancang khusus sebagai penilaian kami untuk assesment ganjil semester 2 dalam materi pembelajaran mobile application programming.</string>
+    <string name="opening">mulai_sekarang</string>
+    <string name="main">nabung_itu_seru</string>
+</resources>
