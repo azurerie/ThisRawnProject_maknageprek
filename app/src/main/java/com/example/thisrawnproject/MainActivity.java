@@ -22,9 +22,10 @@ public class MainActivity extends AppCompatActivity {
     RelativeLayout result_layout;
     String uangjajan, kebutuhansehari;
     Double uangjajansebulan, kebutuhansebulan;
-    int hasil, kebutuhanSebulan;
+    float hasil;
+    float kebutuhanSebulan;
     int index = 100,r;
-    int persentage;
+    float persentage;
     Random random;
     String uj,ks,ph,pb;
     Boolean state;
@@ -133,12 +134,12 @@ public class MainActivity extends AppCompatActivity {
                 persentage = 0;
             }else{
                 float sebulan = (float) (kebutuhansebulan*30);
-                persentage = (int)(uangjajansebulan-sebulan);
+                persentage = (float)(uangjajansebulan-sebulan);
 
-                persentage = (int) (persentage*100/uangjajansebulan);
+                persentage = (float) (persentage*100/uangjajansebulan);
 
             }
-            kebutuhanSebulan = (int) (kebutuhansebulan*30);
+            kebutuhanSebulan = (float) (kebutuhansebulan*30);
 
 
             if (persentage > hasil){
@@ -151,11 +152,11 @@ public class MainActivity extends AppCompatActivity {
                 d = support[r];
             }
 
-            uangjajansebulan_textview.setText("Rp. "+uangjajan);
-            kebutuhansebulan_textview.setText("Rp. "+kebutuhanSebulan);
-            persentasihemat_textview.setText(persentage+" %");
+            uangjajansebulan_textview.setText("Rp. "+String.format("%,.2f",uangjajansebulan));
+            kebutuhansebulan_textview.setText("Rp. "+String.format("%,.2f",kebutuhanSebulan));
+            persentasihemat_textview.setText(String.format("%,.2f",persentage)+" %");
             hasil = index-persentage;
-            persentasiboros_textview.setText(hasil+" %");
+            persentasiboros_textview.setText(String.format("%,.2f",hasil)+" %");
 
             quotes_textview.setText(d);
 
