@@ -21,10 +21,12 @@ public class MainActivity extends AppCompatActivity {
     Button go_Btn, reset_Btn;
     RelativeLayout result_layout;
     String uangjajan, kebutuhansehari;
-    Double uangjajansebulan, kebutuhansebulan;
+    float uangjajansebulan;
+    float kebutuhansebulan;
     float hasil;
     float kebutuhanSebulan;
-    int index = 100,r;
+    float index = 100;
+    int r;
     float persentage;
     Random random;
     String uj,ks,ph,pb;
@@ -127,10 +129,12 @@ public class MainActivity extends AppCompatActivity {
             kebutuhansehari = kebutuhansehari_edittext.getText().toString();
 
             //to double
-            uangjajansebulan = Double.parseDouble(uangjajan);
-            kebutuhansebulan = Double.parseDouble(kebutuhansehari);
+            uangjajansebulan = Float.parseFloat(uangjajan);
+            kebutuhansebulan = Float.parseFloat(kebutuhansehari);
 
-            if (uangjajansebulan < kebutuhansebulan){
+            kebutuhanSebulan = (float) (kebutuhansebulan*30);
+
+            if (uangjajansebulan < kebutuhanSebulan){
                 persentage = 0;
             }else{
                 float sebulan = (float) (kebutuhansebulan*30);
@@ -139,8 +143,6 @@ public class MainActivity extends AppCompatActivity {
                 persentage = (float) (persentage*100/uangjajansebulan);
 
             }
-            kebutuhanSebulan = (float) (kebutuhansebulan*30);
-
 
             if (persentage > hasil){
                 random = new Random();
