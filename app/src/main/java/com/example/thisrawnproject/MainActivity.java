@@ -21,8 +21,8 @@ public class MainActivity extends AppCompatActivity {
     Button go_Btn, reset_Btn;
     RelativeLayout result_layout;
     String uangjajan, kebutuhansehari;
-    float uangjajansebulan;
-    float kebutuhansebulan;
+    double uangjajansebulan;
+    double kebutuhansebulan;
     float hasil;
     float kebutuhanSebulan;
     float index = 100;
@@ -62,20 +62,7 @@ public class MainActivity extends AppCompatActivity {
         go_Btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                uangjajan = uangjajansebulan_edittext.getText().toString();
-                kebutuhansehari = kebutuhansehari_edittext.getText().toString();
-
-
-                if (uangjajan.isEmpty() && kebutuhansehari.isEmpty()){
-                    Toast.makeText(getApplicationContext(), "masukkan angka ke kolom kosong", Toast.LENGTH_SHORT).show();
-                } else if (uangjajan.isEmpty()){
-                    Toast.makeText(getApplicationContext(), "masukkan angka ke kolom kosong", Toast.LENGTH_SHORT).show();
-                }else if (kebutuhansehari.isEmpty()){
-                    Toast.makeText(getApplicationContext(), "masukkan angka ke kolom kosong", Toast.LENGTH_SHORT).show();
-                }
-                else{
-                    Go_Btn();
-                }
+               otherloop();
             }
         });
 
@@ -83,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
         reset_Btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 uangjajansebulan_edittext.setText(" ");
                 kebutuhansehari_edittext.setText(" ");
 
@@ -92,22 +80,30 @@ public class MainActivity extends AppCompatActivity {
                 persentasiboros_textview.setText("0 %");
                 quotes_textview.setText("......");
                 go_Btn.setText("Tekan sini");
-                setGo_Btn();
+
                 state = true;
-                result_layout.setVisibility(View.VISIBLE);
+                result_layout.setVisibility(View.INVISIBLE);
+
             }
         });
 
     }
 
-    public void setGo_Btn(){
-        go_Btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Go_Btn();
-            }
-        });
+    public void otherloop(){
+        uangjajan = uangjajansebulan_edittext.getText().toString();
+        kebutuhansehari = kebutuhansehari_edittext.getText().toString();
 
+
+        if (uangjajan.isEmpty() && kebutuhansehari.isEmpty()){
+            Toast.makeText(getApplicationContext(), "masukkan angka ke kolom kosong", Toast.LENGTH_SHORT).show();
+        } else if (uangjajan.isEmpty()){
+            Toast.makeText(getApplicationContext(), "masukkan angka ke kolom kosong", Toast.LENGTH_SHORT).show();
+        }else if (kebutuhansehari.isEmpty()){
+            Toast.makeText(getApplicationContext(), "masukkan angka ke kolom kosong", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Go_Btn();
+        }
     }
 
     public void Go_Btn(){
@@ -129,8 +125,8 @@ public class MainActivity extends AppCompatActivity {
             kebutuhansehari = kebutuhansehari_edittext.getText().toString();
 
             //to double
-            uangjajansebulan = Float.parseFloat(uangjajan);
-            kebutuhansebulan = Float.parseFloat(kebutuhansehari);
+            uangjajansebulan = Double.parseDouble(uangjajan);
+            kebutuhansebulan = Double.parseDouble(kebutuhansehari);
 
             kebutuhanSebulan = (float) (kebutuhansebulan*30);
 
