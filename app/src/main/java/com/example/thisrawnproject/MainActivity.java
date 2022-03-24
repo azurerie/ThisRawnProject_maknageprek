@@ -59,34 +59,41 @@ public class MainActivity extends AppCompatActivity {
 
         Toast.makeText(getApplicationContext(), "masukkan angka ke kolom kosong", Toast.LENGTH_SHORT).show();
 
-        go_Btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-               otherloop();
-            }
-        });
-
 
         reset_Btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                uangjajansebulan_edittext.setText(" ");
-                kebutuhansehari_edittext.setText(" ");
-
-                uangjajansebulan_textview.setText("Rp. 0");
-                kebutuhansebulan_textview.setText("Rp. 0");
-                persentasihemat_textview.setText("0 %");
-                persentasiboros_textview.setText("0 %");
-                quotes_textview.setText("......");
-                go_Btn.setText("Tekan sini");
-
-                state = true;
-                result_layout.setVisibility(View.INVISIBLE);
-
+                setReset_Btn();
+                Toast.makeText(getApplicationContext(), "masukkan angka ke kolom kosong", Toast.LENGTH_LONG).show();
             }
         });
 
+        go_Btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                go_Btn.setText("Tekan sini");
+                otherloop();
+            }
+        });
+
+    }
+
+    public void setReset_Btn(){
+        uangjajan = uangjajansebulan_edittext.getText().toString();
+        kebutuhansehari = kebutuhansehari_edittext.getText().toString();
+
+         uangjajansebulan_edittext.setText(" ");
+         kebutuhansehari_edittext.setText(" ");
+
+         uangjajansebulan_textview.setText("Rp. 0");
+         kebutuhansebulan_textview.setText("Rp. 0");
+         persentasihemat_textview.setText("0 %");
+         persentasiboros_textview.setText("0 %");
+         quotes_textview.setText("......");
+         go_Btn.setText("Tekan sini");
+
+         state = true;
+         result_layout.setVisibility(View.VISIBLE);
     }
 
     public void otherloop(){
@@ -104,64 +111,64 @@ public class MainActivity extends AppCompatActivity {
         else{
             Go_Btn();
         }
+        state = true;
     }
 
     public void Go_Btn(){
-            praise = new String[4];
-            praise[0] = "Pertahankan kebiasaan menyisihkan uang jajanmu! untuk masa depanmu!";
-            praise[1] = "Selamat! ternyata kebiasaanmu dalam mengatur uang itu masuuk kategori hemat!";
-            praise[2] = "Jangan terlalu senang ya! beberapa hari mungkin memiliki pengeluaran lebih";
-            praise[3] = "Hemat pangkal kaya";
+                praise = new String[4];
+                praise[0] = "Pertahankan kebiasaan menyisihkan uang jajanmu! untuk masa depanmu!";
+                praise[1] = "Selamat! ternyata kebiasaanmu dalam mengatur uang itu masuuk kategori hemat!";
+                praise[2] = "Jangan terlalu senang ya! beberapa hari mungkin memiliki pengeluaran lebih";
+                praise[3] = "Hemat pangkal kaya";
 
-            support = new String[4];
-            support[0] = "Kebisaanmu itu mungkin belum masuk kategori hemat, namun jangan bersedih mulai hemat itu memanglah tidak mudah";
-            support[1] = "Menabunglah untuk masa depanmu.";
-            support[2] = "Ratakan dompet Anda. Jika Anda mendapat Rp100 ribu, simpan setidaknya Rp20–30 ribu.";
-            support[3] =  "Kaya bukanlah tentang seberapa banyak uang yang kita peroleh, melainkan tentang seberapa baik kita mengelola uang tersebut." ;
+                support = new String[4];
+                support[0] = "Kebisaanmu itu mungkin belum masuk kategori hemat, namun jangan bersedih mulai hemat itu memanglah tidak mudah";
+                support[1] = "Menabunglah untuk masa depanmu.";
+                support[2] = "Ratakan dompet Anda. Jika Anda mendapat Rp100 ribu, simpan setidaknya Rp20–30 ribu.";
+                support[3] =  "Kaya bukanlah tentang seberapa banyak uang yang kita peroleh, melainkan tentang seberapa baik kita mengelola uang tersebut." ;
 
 
-            //to string
-            uangjajan = uangjajansebulan_edittext.getText().toString();
-            kebutuhansehari = kebutuhansehari_edittext.getText().toString();
+                //to string
+                uangjajan = uangjajansebulan_edittext.getText().toString();
+                kebutuhansehari = kebutuhansehari_edittext.getText().toString();
 
-            //to double
-            uangjajansebulan = Double.parseDouble(uangjajan);
-            kebutuhansebulan = Double.parseDouble(kebutuhansehari);
+                //to double
+                uangjajansebulan = Double.parseDouble(uangjajan);
+                kebutuhansebulan = Double.parseDouble(kebutuhansehari);
 
-            kebutuhanSebulan = (float) (kebutuhansebulan*30);
+                kebutuhanSebulan = (float) (kebutuhansebulan*30);
 
-            if (uangjajansebulan < kebutuhanSebulan){
-                persentage = 0;
-            }else{
-                float sebulan = (float) (kebutuhansebulan*30);
-                persentage = (float)(uangjajansebulan-sebulan);
+                if (uangjajansebulan < kebutuhanSebulan){
+                    persentage = 0;
+                }else{
+                    float sebulan = (float) (kebutuhansebulan*30);
+                    persentage = (float)(uangjajansebulan-sebulan);
 
-                persentage = (float) (persentage*100/uangjajansebulan);
+                    persentage = (float) (persentage*100/uangjajansebulan);
 
-            }
+                }
 
-            if (persentage > hasil){
-                random = new Random();
-                r = random.nextInt(praise.length);
-                d = praise[r];
-            }else if (persentage < hasil){
-                random = new Random();
-                r = random.nextInt(support.length);
-                d = support[r];
-            }
+                if (persentage > hasil){
+                    random = new Random();
+                    r = random.nextInt(praise.length);
+                    d = praise[r];
+                }else if (persentage < hasil){
+                    random = new Random();
+                    r = random.nextInt(support.length);
+                    d = support[r];
+                }
 
-            uangjajansebulan_textview.setText("Rp. "+String.format("%,.2f",uangjajansebulan));
-            kebutuhansebulan_textview.setText("Rp. "+String.format("%,.2f",kebutuhanSebulan));
-            persentasihemat_textview.setText(String.format("%,.2f",persentage)+" %");
-            hasil = index-persentage;
-            persentasiboros_textview.setText(String.format("%,.2f",hasil)+" %");
+                uangjajansebulan_textview.setText("Rp. "+String.format("%,.2f",uangjajansebulan));
+                kebutuhansebulan_textview.setText("Rp. "+String.format("%,.2f",kebutuhanSebulan));
+                persentasihemat_textview.setText(String.format("%,.2f",persentage)+" %");
+                hasil = index-persentage;
+                persentasiboros_textview.setText(String.format("%,.2f",hasil)+" %");
 
-            quotes_textview.setText(d);
+                quotes_textview.setText(d);
 
-            state = true;
-            result_layout.setVisibility(View.VISIBLE);
-            go_Btn.setText("Hasil");
-
+                state = true;
+                result_layout.setVisibility(View.VISIBLE);
+                go_Btn.setText("Hasil");
 
     }
 
